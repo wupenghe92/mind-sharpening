@@ -25,7 +25,6 @@ solve(map, {x:0,y:0}, {x:1,y:1});
 function solve(map, miner, exit) {
   if (miner.x === exit.x && miner.y === exit.y) return [];
   const visited = {};
-  // can be implemented using two stacks/arrs to achieve O(1) time for dequeue/enqueue
   const queue = new Queue;
   let pos, path;
   pos = {};
@@ -53,12 +52,11 @@ function solve(map, miner, exit) {
       }
     }
   }
-
   return [];
+}
 
-  function copy(arr) {
-    return arr.slice();
-  }
+function copy(arr) {
+  return arr.slice();
 }
 
 function Queue() {
