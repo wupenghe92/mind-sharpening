@@ -82,7 +82,7 @@ Queue.prototype.dequeue = function() {
   return this.stack2.pop();
 }
 
-var map = [[true, false],
-    [true, true]];
+const map = [[true, false],
+             [true, true]];
 
 console.log(solve(map, {x:0,y:0}, {x:1,y:1}));
