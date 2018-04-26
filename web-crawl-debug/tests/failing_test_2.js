@@ -11,8 +11,6 @@ function challenge_2_tests() {
 
             crawler.crawl('triplebyte.github.io/web-crawler-test-site/test2', graph => {
                 const url = 'http://triplebyte.github.io/web-crawler-test-site/test2/page2.html';
-
-  // console.log('*************************',Object.keys(graph.nodes));
                 assert(Object.keys(graph.nodes).indexOf(url) !== -1);
 
                 done();
