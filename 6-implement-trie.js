@@ -4,7 +4,10 @@
  * Initialize your data structure here.
  */
 function Trie() {
-
+  this.children = {};
+  // this.char = '';
+  this.count = 1;   // count of the node
+  this.value = 0;   // count of the key
 };
 
 /**
@@ -13,7 +16,17 @@ function Trie() {
  * @return {void}
  */
 Trie.prototype.insert = function(word) {
-
+  let current  = this;
+  for (let i=0; i<word.length; i++) {
+    if (current.children[word[i]]) {
+      current.children[word[i]].count++;
+    } else {
+      current.children[word[i]] = new Trie();
+    }
+    current = current.children[word[i]];
+  }
+  current.value++;
+  return;
 };
 
 /**
@@ -22,7 +35,12 @@ Trie.prototype.insert = function(word) {
  * @return {boolean}
  */
 Trie.prototype.search = function(word) {
-
+  let current  = this;
+  for (let i=0; i<word.length; i++) {
+    if (!current.children[word[i]]) return false;
+    current = current.children[word[i]];
+  }
+  return current.value > 0;
 };
 
 /**
@@ -31,7 +49,12 @@ Trie.prototype.search = function(word) {
  * @return {boolean}
  */
 Trie.prototype.startsWith = function(prefix) {
-
+  let current  = this;
+  for (let i=0; i<prefix.length; i++) {
+    if (!current.children[prefix[i]]) return false;
+    current = current.children[prefix[i]];
+  }
+  return true;
 };
 
 /**
