@@ -6,10 +6,26 @@
  * @return {boolean}
  */
 var canFinish = function(numCourses, prerequisites) {
+  const g = new Graph();
+  prerequisites.forEach( (pair) => {
+    g.add(pair);
+  });
 
+  const checked = {};
+  
 };
 
-function Node(val) {
-  this.val = val;
-  this.out = [];
+
+
+function Graph() {
+  this.vertices = {};
+  this.edges = {};
+}
+
+Graph.prototype.add = function([end, start]) {
+  if (!this.vertices[start]) this.vertices[start]=true;
+  if (!this.vertices[end]) this.vertices[end]=true;
+  if (!this.edges[start]) this.edges[start]=[];
+  this.edges[start].push(end);
+  return;
 }
