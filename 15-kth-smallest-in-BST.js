@@ -31,4 +31,24 @@ var kthSmallest = function(root, k) {
   return;
 };
 
- 
+// recursive
+
+function kthSmallest(root, k) {
+  let c = 0;
+  let res;
+  util(root);
+  return res;
+
+  function util(root) {
+    if (root) {
+      util(root.left);
+      c++;
+      if (c === k) {
+        res = root.val;
+        return;
+      }
+      util(root.right);
+    }
+    return;
+  }
+}
