@@ -33,3 +33,26 @@ function solution(A) {
     if (!obj[i]) return i;
   }
 }
+
+
+
+
+
+function solution(S) {
+    let res = '';
+    let len = 0;
+    for (let i=0; i<S.length; i++) {
+        if (S[i] !== ' ' && S[i] !== '-') {
+            if (len%3 === 0 && len>0) {
+                res += '-'
+            }
+            res += S[i];
+            len++;
+
+        }
+    }
+    if (len % 3 === 1) {
+        res = res.substring(0, res.length-3) + '-' + res[res.length-3] + res[res.length-1];
+    }
+    return res;
+}
