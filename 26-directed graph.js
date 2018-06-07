@@ -1,24 +1,24 @@
 /**
   * @param {Array of String} words
   * @param {Array of Tuple}  d
-  * @return {Array of true/false}
+  * @return {Array of 1/0}
 */
 
 function checkWordsInGraph(words, d) {
-  //assume all lower case
+  //assume all lower case letters
   const result = [];
   const g = new Graph();
   d.forEach( (tuple) => {
     g.add(tuple);
   });
-  
+
   words.forEach( (word) => {
     let res = 1;
     for (let i=0; i<word.length-1; i++) {
       if (word[i] === word[i+1]) {
         continue;
       }
-      if (!g.edges[word[i]][word[i+1]]) {
+      if (!g.edges[word[i]] || !g.edges[word[i]][word[i+1]]) {
         res = 0;
         break;
       }
