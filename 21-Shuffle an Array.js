@@ -13,15 +13,41 @@ var Solution = function(nums) {
  * @return {number[]}
  */
 Solution.prototype.reset = function() {
-  return this.origin;
+  this.nums = this.origin.slice();
+  return this.nums;
 };
 
 /**
  * Returns a random shuffling of the array.
  * @return {number[]}
  */
-Solution.prototype.shuffle = function() {
+// brutal force
+// Solution.prototype.shuffle = function() {
+//   const newArr = Array(this.nums.length);
+//   const idx = [];
+//   for (let i=0; i<this.nums.length; i++) {
+//     idx.push(i);
+//   }
+//   for (let j=0; j<this.nums.length; j++) {
+//     let i = Math.floor(Math.random()*(idx.length));
+//     newArr[idx[i]] = this.nums[j];
+//     idx.splice(i,1);
+//   }
+//   this.nums = newArr;
+//   return this.nums;
+// };
 
+
+//Fisher-Yates Algorithm
+Solution.prototype.shuffle = function() {
+  for (let i=0; i<this.nums.length; i++) {
+    let remain = this.nums.length - i;
+    let newIdx = Math.floor(Math.random()*remain + i);
+    let buffer = this.nums[newIdx];
+    this.nums[newIdx] = this.nums[i];
+    this.nums[i] = buffer;
+  }
+  return this.nums;
 };
 
 /**
