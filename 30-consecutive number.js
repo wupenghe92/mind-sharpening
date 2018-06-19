@@ -16,5 +16,5 @@ function consecutive(num) {
 
 
 console.log(consecutive(21));
-console.log(consecutive(250));
+// console.log(consecutive(250));
 console.log(consecutive(10));

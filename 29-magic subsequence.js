@@ -33,3 +33,5 @@ function longestSubsequence(s) {
     // console.log(len)
     return maxlen;
 }
+
+console.log(longestSubsequence('eieaieoaaoauu'))
