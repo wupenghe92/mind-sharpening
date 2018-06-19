@@ -14,7 +14,7 @@ function solution(A, K, M) {
   let ans = -1;
   let numGroup = 0;
   const state = Array(n).fill(0);
-  for (let i=0; i<n; i++) {
+  for (let i=0; i<n-1; i++) {
     const pos = A[i]-1;
     let leftLength = getGroupLengthAtP(state, pos-1);
     let rightLength = getGroupLengthAtP(state, pos+1);
@@ -26,7 +26,7 @@ function solution(A, K, M) {
     }
     state[pos] = 1;
     if (numGroup === M) ans=i+1;
-    console.log(ans, state, numGroup)
+    // console.log(ans, state, numGroup)
   }
   return ans;
 }
