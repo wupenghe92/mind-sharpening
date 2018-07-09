@@ -1,6 +1,3 @@
-
-
-
 function solution(X, Y, K, A, B) {
   const xarr = findLength(X, A);
   const yarr = findLength(Y, B);
