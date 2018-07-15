@@ -35,7 +35,6 @@ app.get('/search', authController.checkCookie, tastController.searchOrder);
 
 io.on('connection', (socket) => {
   console.log('socket connected  ',socket.id)
-
   socket.on('subscribe', (data) => {
     data = JSON.parse(data);
     for (let i=0; i<data.length; i++) {
