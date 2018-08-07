@@ -25,7 +25,7 @@ solve(map, {x:0,y:0}, {x:1,y:1});
 function solve(map, miner, exit) {
   if (miner.x === exit.x && miner.y === exit.y) return [];
   const visited = {};
-  const queue = new Queue;
+  const queue = new Queue();
   let pos, path;
   pos = {};
   pos.x = miner.x;
